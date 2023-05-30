@@ -14,19 +14,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    fontSize: 30,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "black",
   },
   red: {
-    height: 65,
-    backgroundColor: "#121212",
+    height: 50,
+    width: 50,
+    backgroundColor: "red",
   },
   green: {
-    flex: 1,
-    backgroundColor: "#ddd",
+    height: 50,
+    width: 50,
+    backgroundColor: "green",
   },
   yellow: {
-    height: 65,
-    backgroundColor: "#121212",
+    height: 50,
+    width: 50,
+    backgroundColor: "yellow",
   },
 });
