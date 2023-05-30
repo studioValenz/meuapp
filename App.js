@@ -1,26 +1,24 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React, { Component, useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 
-export default class App extends Component {
-  render() {
-    let nome = "Julio Anderson";
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Testando</Text>
-        <Text style={{ fontSize: 30 }}>Meu primeiro app</Text>
-        <Logo nome={"Anderson"} />
-        <Text style={styles.text}>{nome}</Text>
-      </View>
-    );
+export default function App() {
+  const [nome, setNome] = useState("Julio");
+  const [idade, setIdade] = useState(32);
+
+  function entrar(nome, idade) {
+    setNome(nome);
+    setIdade(idade);
   }
-}
 
-function Logo(props) {
-  let img = "https://sujeitoprogramador.com/reactlogo.png";
   return (
-    <View>
-      <Image style={styles.img} source={{ uri: img }} />
-      <Text>{props.nome}</Text>
+    <View style={styles.container}>
+      <Button
+        style={styles.butao}
+        title="Mudar nome"
+        onPress={() => entrar("Julio Anderson", 50)}
+      />
+      <Text style={styles.text}>{nome}</Text>
+      <Text style={styles.text}>{idade}</Text>
     </View>
   );
 }
@@ -35,11 +33,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    color: "#254df2",
-    backgroundColor: "black",
   },
-  img: {
-    width: 300,
-    height: 300,
+  butao: {
+    color: "red",
   },
 });
