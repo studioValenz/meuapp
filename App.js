@@ -4,18 +4,25 @@ import { StyleSheet, Text, View, Image } from "react-native";
 export default class App extends Component {
   render() {
     let nome = "Julio Anderson";
-    let img = "https://sujeitoprogramador.com/reactlogo.png";
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Testando</Text>
         <Text style={{ fontSize: 30 }}>Meu primeiro app</Text>
-
-        <Image style={styles.img} source={{ uri: img }} />
-
+        <Logo nome={"Anderson"} />
         <Text style={styles.text}>{nome}</Text>
       </View>
     );
   }
+}
+
+function Logo(props) {
+  let img = "https://sujeitoprogramador.com/reactlogo.png";
+  return (
+    <View>
+      <Image style={styles.img} source={{ uri: img }} />
+      <Text>{props.nome}</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
