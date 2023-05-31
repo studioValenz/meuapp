@@ -1,12 +1,21 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
+  const [nome, setNome] = useState("");
+
+  function pegaNome(texto) {
+    setNome(texto);
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.red}></View>
-      <View style={styles.green}></View>
-      <View style={styles.yellow}></View>
+      <TextInput
+        style={styles.input}
+        placeholder="Digite seu nome"
+        onChangeText={(text) => pegaNome(text)}
+      />
+      <Text style={styles.texto}>{nome}</Text>
     </View>
   );
 }
@@ -14,24 +23,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
+    // flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "black",
+    // alignItems: "center",
   },
-  red: {
-    height: 50,
-    width: 50,
-    backgroundColor: "red",
+  input: {
+    height: 45,
+    borderWidth: 1,
+    margin: 10,
+    padding: 10,
+    fontSize: 20,
   },
-  green: {
-    height: 50,
-    width: 50,
-    backgroundColor: "green",
-  },
-  yellow: {
-    height: 50,
-    width: 50,
-    backgroundColor: "yellow",
+  texto: {
+    textAlign: "center",
+    fontSize: 20,
   },
 });
